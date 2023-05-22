@@ -7,7 +7,7 @@ public class Traffic_Light_Controller {
 //        //Sensor sensor
 //    }
     public void determine_Time(){
-
+        asdasd
     }
     public void saveData(){
 
