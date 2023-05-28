@@ -6,7 +6,11 @@ public class AI {
     private int westLane;
     private int northLane;
     private int southLane;
-
+    public AI(){
+        GetData getdata = new GetData();
+        getdata.getTrafficflowData("East");
+        getdata.getEmergencyData();
+    }
     private double ratio;//each lane's compare value
 
     //get the traffic flow from Yolov8

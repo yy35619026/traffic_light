@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		new Traffic_Light_Controller();
+		new GetData();
+		//SpringApplication.run(Traffic_Light_Controller.class, args);
 	}
 }
 
