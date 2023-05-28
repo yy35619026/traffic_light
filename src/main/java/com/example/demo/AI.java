@@ -7,6 +7,7 @@ public class AI {
     private int northLane;
     private int southLane;
     public AI(){
+        //這裡是 new AI的流程要AI做的事情都在這邊添加
         GetData getdata = new GetData();
         getdata.getTrafficflowData("East");
         getdata.getEmergencyData();
