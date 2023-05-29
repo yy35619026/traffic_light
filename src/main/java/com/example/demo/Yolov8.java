@@ -1,5 +1,5 @@
 package com.example.demo;
-
+//這個Class是抓取動態數據
 public class Yolov8 {
     protected int trafficFlow;
     protected int getData(String lane){

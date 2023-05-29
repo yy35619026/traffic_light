@@ -2,7 +2,7 @@ package com.example.demo;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
+//這個Class是抓取靜態數據
 public class GetData {
     private int trafficFlow;
     public GetData(){
