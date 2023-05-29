@@ -9,17 +9,21 @@ public class AI {
     public AI(){
         //這裡是 new AI的流程要AI做的事情都在這邊添加
         GetData getdata = new GetData();
-        getdata.getTrafficflowData("East");
+        getdata.getData("East");
         getdata.getEmergencyData();
     }
     private double ratio;//each lane's compare value
 
     //get the traffic flow from Yolov8
-    public int getTraffic() {
+    public int getTrafficFlow() {
         Yolov8 yolo = new Yolov8();
         int lane = yolo.trafficFlow;
         //assume yolov8 already calculated the traffic flow
         //so created an instance of yolov8 then we can access the variable trafficFlow from yolov8
+        yolo.getData("East");
+        yolo.getData("West");
+        yolo.getData("North");
+        yolo.getData("South");
         return lane;
     }
 

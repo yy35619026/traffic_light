@@ -4,38 +4,38 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class GetData {
+    private int trafficFlow;
     public GetData(){
         getEmergencyData();
-        getTrafficflowData("East");
+        getData("East");
     }
     public void getEmergencyData(){
-        try{
-            File myfile = new File("demo.csv");
-            Scanner readfile = new Scanner(myfile);
+        System.out.println("File Loading...");
 
-            while (readfile.hasNextLine()){
-                String data = readfile.nextLine();
-                System.out.println(data);
-            }
-            readfile.close();
-        }catch (FileNotFoundException x){
-            System.out.println("An error is occurred.");
-            x.printStackTrace();
-        }
+        System.out.println("Success");
     }
-    public void getTrafficflowData(String lane){
-        try{
-            File myfile = new File("demo.csv");
-            Scanner readfile = new Scanner(myfile);
+    public int getData(String lane){
+        if (lane == "East"){
+            System.out.println("File Loading...");
 
-            while (readfile.hasNextLine()){
-                String data = readfile.nextLine();
-                System.out.println(data);
-            }
-            readfile.close();
-        }catch (FileNotFoundException x){
-            System.out.println("An error is occurred.");
-            x.printStackTrace();
+            System.out.println("Loading success！！！");
+            //trafficFlow = 你抓取到的數值;
+        }else if (lane == "West"){
+            System.out.println("File Loading...");
+
+            System.out.println("Loading success！！！");
+            //trafficFlow = 你抓取到的數值;
+        }else if (lane == "North"){
+            System.out.println("File Loading...");
+
+            System.out.println("Loading success！！！");
+            //trafficFlow = 你抓取到的數值;
+        }else if (lane == "South"){
+            System.out.println("File Loading...");
+
+            System.out.println("Loading success！！！");
+            //trafficFlow = 你抓取到的數值;
         }
+        return trafficFlow;
     }
 }
