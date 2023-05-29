@@ -11,6 +11,8 @@ public class AI {
         GetData getdata = new GetData();
         getdata.getData("East");
         getdata.getEmergencyData();
+        getTrafficFlow();
+        //compareTrafficFlow();
     }
     private double ratio;//each lane's compare value
 
@@ -20,10 +22,10 @@ public class AI {
         int lane = yolo.trafficFlow;
         //assume yolov8 already calculated the traffic flow
         //so created an instance of yolov8 then we can access the variable trafficFlow from yolov8
-        yolo.getData("East");
-        yolo.getData("West");
-        yolo.getData("North");
-        yolo.getData("South");
+        eastLane = yolo.getData("East");
+        westLane = yolo.getData("West");
+        northLane = yolo.getData("North");
+        southLane = yolo.getData("South");
         return lane;
     }
 

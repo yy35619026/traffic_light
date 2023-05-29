@@ -1,8 +1,8 @@
 package com.example.demo;
 
 public class Yolov8 {
-    public int trafficFlow;
-    public int getData(String lane){
+    protected int trafficFlow;
+    protected int getData(String lane){
         if (lane == "East"){
             System.out.println("File of East Loading...");
 
