@@ -9,7 +9,6 @@ public class AI {
     public AI(){
         //這裡是 new AI的流程要AI做的事情都在這邊添加
         GetData getdata = new GetData();
-        getdata.getData("East");
         getdata.getEmergencyData();
         getTrafficFlow("");
         //compareTrafficFlow();
@@ -21,51 +20,42 @@ public class AI {
         Yolov8 yolo = new Yolov8();
         //assume yolov8 already calculated the traffic flow
         //so created an instance of yolov8 then we can access the variable trafficFlow from yolov8
-        eastLane = yolo.getData("East");
-        westLane = yolo.getData("West");
-        northLane = yolo.getData("North");
-        southLane = yolo.getData("South");
+        this.eastLane = yolo.getData("East");
+        this.westLane = yolo.getData("West");
+        this.northLane = yolo.getData("North");
+        this.southLane = yolo.getData("South");
+
     }
 
     public double compareTrafficFlow(){
-        Yolov8 yoloE = new Yolov8();
-        int eastlane = yoloE.trafficFlow;
-
-        Yolov8 yoloW = new Yolov8();
-        int westlane = yoloW.trafficFlow;
-
-        Yolov8 yoloN = new Yolov8();
-        int northlane = yoloN.trafficFlow;
-
-        Yolov8 yoloS = new Yolov8();
-        int southlane = yoloS.trafficFlow;
 
         //compare same direction's traffic flow
-        if(eastlane > westlane && northlane > southlane){
-            ratio = eastlane/northlane;
-        }else if(eastlane > westlane && northlane < southlane){
-            ratio = eastlane/southlane;
-        }else if(eastlane < westlane && northlane > southlane){
-            ratio = westlane/northlane;
+        if(eastLane > westLane && northLane > southLane){
+            ratio = eastLane/northLane;
+        }else if(eastLane > westLane && northLane < southLane ){
+            ratio = eastLane/southLane;
+        }else if(eastLane < westLane && northLane > southLane){
+            ratio = westLane/northLane;
         }else{
-            ratio = westlane/southlane;
+            ratio = westLane/southLane;
         }
-
-        //depends on the ratio to determine traffic light time
-        if(ratio == 1 || (ratio > 0.66 && ratio < 1.5)){
-            System.out.println();//remain the same
-        }else if(ratio > 0.11 && ratio < 0.42){
-            //increase eastlane gren light time
-            //increase northlane red light time
-            System.out.println();
-        }else{
-            //decrease eastlane green light time
-            //decrease northlane red light time
-            System.out.println();
-        }
-        //note:the timing of traffic lights in the same way is linked
-        //which means EW is the same group, and NS too
-        System.out.println();
         return ratio;
+
+//        //depends on the ratio to determine traffic light time  **********已移動
+//        if(ratio == 1 || (ratio > 0.66 && ratio < 1.5)){
+//            System.out.println();//remain the same
+//        }else if(ratio > 0.11 && ratio < 0.42){
+//            //increase eastlane gren light time
+//            //increase northlane red light time
+//            System.out.println();
+//        }else{
+//            //decrease eastlane green light time
+//            //decrease northlane red light time
+//            System.out.println();
+//        }
+//        //note:the timing of traffic lights in the same way is linked
+//        //which means EW is the same group, and NS too
+//        System.out.println();
+//        return ratio;
     }
 }
