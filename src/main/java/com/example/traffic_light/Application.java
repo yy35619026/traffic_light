@@ -13,8 +13,8 @@ public class Application {
 
 	public static void main(String[] args) {
 		new Traffic_Light_Controller();
-		SpringApplication.run(Traffic_Light_Controller.class, args);
-//		SpringApplication.run(Application.class, args);
+		//SpringApplication.run(Traffic_Light_Controller.class, args);
+		//SpringApplication.run(Application.class, args);
 	}
 }
 

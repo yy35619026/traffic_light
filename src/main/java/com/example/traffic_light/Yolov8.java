@@ -4,22 +4,22 @@ import java.io.FileReader;
 import java.io.IOException;
 //這個Class是抓取動態數據
 public class Yolov8 {
-    String file = "src/trafficFlow.csv";
-    BufferedReader reader = null;
-    protected int trafficFlow;
-    int FlowIndex = 33;
-    int[] CsvＶalues = new int[4];
-    int count = 0;
-    public Yolov8() {
+    private BufferedReader reader;
+    private int trafficFlow;
+    private int[] csvValues;
+    public Yolov8(String filePath) {
+        csvValues = new int[4];
+
         try {
+            reader = new BufferedReader(new FileReader(filePath));
             String line;
-            reader = new BufferedReader(new FileReader(file));
-            while ((line = reader.readLine()) != null && count <4) {
+            int count = 0;
+
+            while ((line = reader.readLine()) != null && count < 4) {
                 String[] values = line.split(",");
-                StoreCsv(values[FlowIndex],count);
+                storeCsvValue(values[33], count);
                 count++;
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -32,36 +32,32 @@ public class Yolov8 {
             }
         }
     }
-    protected int getData(String lane){
-        if (lane == "East"){
-            System.out.println("File of East Loading...");
-
-            System.out.println("Loading success！！！");
-            trafficFlow = CsvＶalues[0];
-        }else if (lane == "West"){
-            System.out.println("File of West Loading...");
-
-            System.out.println("Loading success！！！");
-            trafficFlow = CsvＶalues[1];
-        }else if (lane == "North"){
-            System.out.println("File of North Loading...");
-
-            System.out.println("Loading success！！！");
-            trafficFlow = CsvＶalues[2];
-        }else if (lane == "South"){
-            System.out.println("File of South Loading...");
-
-            System.out.println("Loading success！！！");
-            trafficFlow = CsvＶalues[3];
+    public int getData(String lane) {
+        switch (lane) {
+            case "East":
+                System.out.println("Loading traffic flow data for East lane...");
+                trafficFlow = csvValues[0];
+                break;
+            case "West":
+                System.out.println("Loading traffic flow data for West lane...");
+                trafficFlow = csvValues[1];
+                break;
+            case "North":
+                System.out.println("Loading traffic flow data for North lane...");
+                trafficFlow = csvValues[2];
+                break;
+            case "South":
+                System.out.println("Loading traffic flow data for South lane...");
+                trafficFlow = csvValues[3];
+                break;
+            default:
+                System.out.println("Invalid lane specified.");
         }
+        System.out.println("Loading successful!");
         return trafficFlow;
     }
-
-    public void  StoreCsv(String values,int count){
-
-
-        int value = Integer.parseInt(values);
-
-        CsvＶalues[count] = value;
+    private void storeCsvValue(String value, int index) {
+        int parsedValue = Integer.parseInt(value);
+        csvValues[index] = parsedValue;
     }
 }
