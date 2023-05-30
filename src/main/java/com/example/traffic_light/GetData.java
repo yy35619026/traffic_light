@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.traffic_light;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;

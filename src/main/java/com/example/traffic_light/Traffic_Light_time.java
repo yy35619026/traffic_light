@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.traffic_light;
 
 public class Traffic_Light_time {
 

@@ -1,6 +1,4 @@
-package com.example.demo;
-
-import java.awt.*;
+package com.example.traffic_light;
 
 public class Traffic_Light_Controller {
     private int light_time;
