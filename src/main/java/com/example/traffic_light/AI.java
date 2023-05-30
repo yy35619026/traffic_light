@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.traffic_light;
 
 public class AI {
     //全部都暫定，必須修正！！！

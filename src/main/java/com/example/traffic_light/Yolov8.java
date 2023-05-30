@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.traffic_light;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
