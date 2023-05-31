@@ -1,7 +1,7 @@
 package com.example.traffic_light;
 
 
-import com.example.database.Traffic;
+import java.awt.*;
 
 public class Traffic_Light_Controller {
 
@@ -12,20 +12,19 @@ public class Traffic_Light_Controller {
 
     public Traffic_Light_Controller(){
         //這裡是 new Controller的流程要Controller做的事情都在這邊添加
-//        new AI();
+        new AI();
 
-//        demermine_state("vertical",true,"Red");
-//        determine_Time("vertical");//南北向測試
-//        saveData();
+        demermine_state("vertical",true,"Red");
+        determine_Time("vertical");//南北向測試
         saveData();
     }
     public void demermine_state(String lane,boolean bool,String color){
 
-        Traffic_Light traffic_light = new Traffic_Light(color);
+//        Traffic_Light traffic_light = new Traffic_Light(color);
 
         if(lane =="vertical"  && bool == true && color=="Red"){
 
-            traffic_light.changeLight("Green");
+//            traffic_light.changeLight("Green");
             System.out.format("\033[0;31m更改--東西向車道--紅燈\033[0m%n");
             System.out.format("\033[0;31m延長紅燈--東西向車道--紅燈時間20秒\033[0m%n");
 
@@ -35,7 +34,7 @@ public class Traffic_Light_Controller {
 
         }else if(lane =="parallel"  && bool == true && color=="Red"){
 
-            traffic_light.changeLight("Green");
+//            traffic_light.changeLight("Green");
             System.out.format("\33[0;32m更改--東西向車道--綠燈\33[0m%n");
             System.out.format("\33[0;32m延長--東西向車道--綠燈時間20秒\33[0m%n");
 
@@ -68,11 +67,7 @@ public class Traffic_Light_Controller {
 
 
     public void saveData(){
-        Traffic save = new Traffic();
-        save.getId();
-        save.setTraffic_light_time("10");
-        System.out.println("worked.");
-        save.setTraffic_light_color("Red");
-        System.out.println("worked.");
+        System.out.println("SaveData is worked.");
     }
+
 }
