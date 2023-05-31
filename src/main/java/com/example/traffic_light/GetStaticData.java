@@ -1,12 +1,12 @@
 package com.example.traffic_light;
 import java.io.*;
-import java.util.Scanner;
+
 //這個Class是抓取靜態數據
-public class GetData {
+public class GetStaticData {
     private BufferedReader reader;
     private int trafficFlow;
     private int[] csvValues;
-    public GetData(String filePath){
+    public GetStaticData(String filePath){
         csvValues = new int[4];
 
         try {

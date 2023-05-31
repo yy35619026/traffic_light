@@ -7,6 +7,7 @@ public class AI {
     private int northLane;
     private int southLane;
     private double ratio;//each lane's compare value
+    private String state;
     public AI(){
         //這裡是 new AI的流程要AI做的事情都在這邊添加
         getTrafficFlow("");
@@ -28,13 +29,17 @@ public class AI {
         ratio = (double) A / B;
     }
 
-    public void compareVerticalTrafficFlow() {
+    public String compareVerticalTrafficFlow() {
         if (ratio == 1 || (ratio > 0.66 && ratio < 1.5)) {
             System.out.println("Remain the same.");
+            state = "Stable";
         } else if (ratio > 0.11 && ratio < 0.42) {
             System.out.println("Increase green light time.");
+            state = "Heavy";
         } else {
             System.out.println("Decrease green light time.");
+            state = "Low";
         }
+        return state;
     }
 }

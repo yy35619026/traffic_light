@@ -1,7 +1,7 @@
 package com.example.traffic_light;
 
 
-import java.awt.*;
+import com.example.database.Traffic;
 
 public class Traffic_Light_Controller {
 
@@ -12,10 +12,11 @@ public class Traffic_Light_Controller {
 
     public Traffic_Light_Controller(){
         //這裡是 new Controller的流程要Controller做的事情都在這邊添加
-        new AI();
+//        new AI();
 
-        demermine_state("vertical",true,"Red");
-        determine_Time("vertical");//南北向測試
+//        demermine_state("vertical",true,"Red");
+//        determine_Time("vertical");//南北向測試
+//        saveData();
         saveData();
     }
     public void demermine_state(String lane,boolean bool,String color){
@@ -67,7 +68,12 @@ public class Traffic_Light_Controller {
 
 
     public void saveData(){
-        System.out.println("SaveData is worked.");
+        Traffic save = new Traffic();
+        save.getId();
+        save.setTraffic_light_time("10");
+        System.out.println("worked.");
+        save.setTraffic_light_color("Red");
+        System.out.println("worked.");
     }
 
 }
