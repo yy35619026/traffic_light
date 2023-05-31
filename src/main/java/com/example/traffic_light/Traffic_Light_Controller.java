@@ -75,5 +75,4 @@ public class Traffic_Light_Controller {
         save.setTraffic_light_color("Red");
         System.out.println("worked.");
     }
-
 }

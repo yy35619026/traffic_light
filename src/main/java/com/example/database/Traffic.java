@@ -4,13 +4,14 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "traffic_light_controller")
-
 public class Traffic {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id;
     @Column(name="traffic_light_time")
     private String traffic_light_time;
+    @Column(insertable = true)
+    private String trafficflow;
     @Column(name= "traffic_light_color")
     private String traffic_light_color;
     public int getId() {

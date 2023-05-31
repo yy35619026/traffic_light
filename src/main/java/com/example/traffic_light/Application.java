@@ -1,5 +1,6 @@
 package com.example.traffic_light;
 
+import com.example.database.Traffic;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -12,9 +13,9 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 public class Application {
 
 	public static void main(String[] args) {
-		new Traffic_Light_Controller();
-//		new TrafficLight_Controller();
-//		SpringApplication.run(Traffic_Light_Controller.class, args);
+
+		SpringApplication.run(Application.class, args);
+
 	}
 }
 
