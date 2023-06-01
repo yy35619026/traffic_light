@@ -1,8 +1,10 @@
 package com.example.database;
 
 import jakarta.persistence.*;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.sql.Blob;
+
 
 @Entity
 @Table(name = "yolov8")
@@ -24,7 +26,7 @@ public class Yolov8 {
     @Lob
     @Column(name="saveimage")
     private Blob saveimage;
-    @Column(name="trafficflowEast")
+    @Column(name="vehicle")
     private int vehicle;
 
 

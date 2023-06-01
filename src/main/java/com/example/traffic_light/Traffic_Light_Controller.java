@@ -1,5 +1,6 @@
 package com.example.traffic_light;
-
+import com.example.database.*;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.awt.*;
 
@@ -42,6 +43,7 @@ public class Traffic_Light_Controller {
     }
 
     public void saveData(){
+
         System.out.println("SaveData is worked.");
     }
 }
