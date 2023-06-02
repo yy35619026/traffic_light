@@ -16,7 +16,7 @@ public class GetStaticData {
 
             while ((line = reader.readLine()) != null && count < 4) {
                 String[] values = line.split(",");
-                storeCsvValue(values[33], count);
+                storeCsvValue(values[0], count);
                 count++;
             }
         } catch (IOException e) {

@@ -9,17 +9,26 @@ public class AI {
     private double ratio;//each lane's compare value
     public AI(){
         //這裡是 new AI的流程要AI做的事情都在這邊添加
-        getTrafficFlow("");
-        compareSameLevelTrafficFlow();
-        compareVerticalTrafficFlow();
+//        getTrafficFlow("trafficFlow.csv");
+        getTrafficFlow("staticdata.csv");
     }
     //get the traffic flow from yolov8
     public void getTrafficFlow(String filePath) {
-        Yolov8 yolov8 = new Yolov8(filePath); // Create an instance of Yolov8 class
-        eastLane = yolov8.getData("East"); // Get traffic volume for the East lane
-        westLane = yolov8.getData("West"); // Get traffic volume for the West lane
-        northLane = yolov8.getData("North"); // Get traffic volume for the North lane
-        southLane = yolov8.getData("South"); // Get traffic volume for the South lane
+//        Yolov8 yolov8 = new Yolov8(filePath); // Create an instance of Yolov8 class
+//        eastLane = yolov8.getData("East"); // Get traffic volume for the East lane
+//        westLane = yolov8.getData("West"); // Get traffic volume for the West lane
+//        northLane = yolov8.getData("North"); // Get traffic volume for the North lane
+//        southLane = yolov8.getData("South"); // Get traffic volume for the South lane
+
+        GetStaticData staticData = new GetStaticData(filePath);
+        eastLane = staticData.getData("East"); // Get traffic volume for the East lane
+        westLane = staticData.getData("West"); // Get traffic volume for the West lane
+        northLane = staticData.getData("North"); // Get traffic volume for the North lane
+        southLane = staticData.getData("South"); // Get traffic volume for the South lane
+        System.out.println("eastlane = " + eastLane);
+        System.out.println("westlane = " + westLane);
+        System.out.println("northlane = " + northLane);
+        System.out.println("southlane = " + southLane);
     }
 
     public void compareSameLevelTrafficFlow() {
@@ -28,13 +37,18 @@ public class AI {
         ratio = (double) A / B;
     }
 
-    public void compareVerticalTrafficFlow() {
-        if (ratio == 1 || (ratio > 0.66 && ratio < 1.5)) {
-            System.out.println("Remain the same.");
-        } else if (ratio > 0.11 && ratio < 0.42) {
+    public String compareVerticalTrafficFlow() {
+        String lane;
+        if (ratio >= 2.5) {
             System.out.println("Increase green light time.");
-        } else {
+            lane = "Parallel";
+        } else if (ratio <= 0.4){
             System.out.println("Decrease green light time.");
+            lane = "Vertical";
+        }else{
+            System.out.println("Remain the same.");
+            lane = "";
         }
+        return lane;
     }
 }
