@@ -2,7 +2,7 @@ package com.example.Controller;
 
 import com.example.Repository.EmergencyRepository;
 import com.example.Repository.TrafficRepository;
-import com.example.database.Traffic;
+import com.example.database.Condition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.lang.annotation.Target;
 
 @RestController
-@RequestMapping("/Traffic")
+@RequestMapping("/Condition")
 public class Traffic_controller {
     @Autowired
     TrafficRepository trafficRepository;

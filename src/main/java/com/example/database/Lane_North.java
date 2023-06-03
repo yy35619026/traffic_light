@@ -11,7 +11,7 @@ public class Lane_North {
     private int id;
     @Column(name="trafficflowNorth")
     private int trafficflowEast;
-    @Column(name="Energency_vehicle")
+    @Column(name="Emergency_vehicle")
     private boolean Emergency_vehicle;
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Date date;
