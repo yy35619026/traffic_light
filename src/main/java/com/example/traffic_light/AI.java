@@ -21,6 +21,7 @@ public class AI {
 //        southLane = yolov8.getData("South"); // Get traffic volume for the South lane
 
         GetStaticData staticData = new GetStaticData(filePath);
+
         eastLane = staticData.getData("East"); // Get traffic volume for the East lane
         westLane = staticData.getData("West"); // Get traffic volume for the West lane
         northLane = staticData.getData("North"); // Get traffic volume for the North lane

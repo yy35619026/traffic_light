@@ -31,11 +31,13 @@ public class GetStaticData {
             }
         }
     }
+
     public void getEmergencyData(){
         System.out.println("File Loading...");
 
         System.out.println("Success");
     }
+
     public int getData(String lane){
         switch (lane) {
             case "East":
@@ -60,6 +62,7 @@ public class GetStaticData {
         System.out.println("Loading successful!");
         return trafficFlow;
     }
+
     private void storeCsvValue(String value, int index) {
         int parsedValue = Integer.parseInt(value);
         csvValues[index] = parsedValue;
