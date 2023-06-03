@@ -11,6 +11,9 @@ public class AI {
     public AI(){
         //這裡是 new AI的流程要AI做的事情都在這邊添加
 //        getTrafficFlow("trafficFlow.csv");
+        System.out.println("Connecting to Yolov8...");
+        System.out.println("-----------------------");
+
         getTrafficFlow("trafficFlow.csv");
         compareSameLevelTrafficFlow();
     }
@@ -33,29 +36,32 @@ public class AI {
 //        westLane = staticData.getData("West"); // Get traffic volume for the West lane
 //        northLane = staticData.getData("North"); // Get traffic volume for the North lane
 //        southLane = staticData.getData("South"); // Get traffic volume for the South lane
-        System.out.println("eastlane = " + eastLane);
-        System.out.println("westlane = " + westLane);
-        System.out.println("northlane = " + northLane);
-        System.out.println("southlane = " + southLane);
     }
 
     public void compareSameLevelTrafficFlow() {
         int A = (eastLane > westLane) ? eastLane : westLane;
         int B = (northLane > southLane) ? northLane : southLane;
         ratio = (double) A / B;
-        compareVerticalTrafficFlow();
+//        compareVerticalTrafficFlow();
     }
 
     public String compareVerticalTrafficFlow() {
+        System.out.println("eastlane = " + eastLane);
+        System.out.println("westlane = " + westLane);
+        System.out.println("northlane = " + northLane);
+        System.out.println("southlane = " + southLane);
         String lane;
         if (ratio >= 2.5) {
 //            System.out.println("Increase green light time.");
+            System.out.println("目前東西向車道堵塞！！！請疏通！！！");
             lane = "Parallel";
         } else if (ratio <= 0.4){
 //            System.out.println("Decrease green light time.");
+            System.out.println("目前南北向車道堵塞！！！請疏通！！！");
             lane = "Vertical";
         }else{
 //            System.out.println("Remain the same.");
+            System.out.println("目前車道流量穩定！！！");
             lane = "";
         }
         return lane;

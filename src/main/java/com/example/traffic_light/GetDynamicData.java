@@ -40,13 +40,11 @@ public class GetDynamicData {
         }
     }
     public boolean getEmergencyData(int i){
-        System.out.println("File Loading...");
         if(csvValues[i] == 1){
             EmergencyVehicle = true;
         }else{
             EmergencyVehicle = false;
         }
-        System.out.println("Success");
         return EmergencyVehicle;
     }
     public int getData(String lane) {
@@ -54,22 +52,22 @@ public class GetDynamicData {
             case "East":
                 System.out.println("Loading traffic flow data for East lane...");
                 trafficFlow = csvValues[0];
-                EmergencyVehicle = getEmergencyData(4);
+//                EmergencyVehicle = getEmergencyData(4);
                 break;
             case "West":
                 System.out.println("Loading traffic flow data for West lane...");
                 trafficFlow = csvValues[1];
-                EmergencyVehicle = getEmergencyData(5);
+//                EmergencyVehicle = getEmergencyData(5);
                 break;
             case "North":
                 System.out.println("Loading traffic flow data for North lane...");
                 trafficFlow = csvValues[2];
-                EmergencyVehicle = getEmergencyData(6);
+//                EmergencyVehicle = getEmergencyData(6);
                 break;
             case "South":
                 System.out.println("Loading traffic flow data for South lane...");
                 trafficFlow = csvValues[3];
-                EmergencyVehicle = getEmergencyData(7);
+//                EmergencyVehicle = getEmergencyData(7);
                 break;
             default:
                 System.out.println("Invalid lane specified.");
