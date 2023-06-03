@@ -21,7 +21,12 @@ public class AI {
         westLane = getDynamicData.getData("West"); // Get traffic volume for the West lane
         northLane = getDynamicData.getData("North"); // Get traffic volume for the North lane
         southLane = getDynamicData.getData("South"); // Get traffic volume for the South lane
-        Emergency = getDynamicData.getEmergencyData();
+        for(int i = 4 ; i < 8 ; i++){
+            Emergency = getDynamicData.getEmergencyData(i);
+            if(Emergency == true){
+                break;
+            }
+        }
 //        GetStaticData staticData = new GetStaticData(filePath);
 //
 //        eastLane = staticData.getData("East"); // Get traffic volume for the East lane
