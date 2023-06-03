@@ -2,29 +2,36 @@ package com.example.database;
 
 import jakarta.persistence.*;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Condition_Traffic")
 public class Condition {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column(name = "totalFlow")
     private int totalFlow;
     @Column(name = "Date")
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Date date;
+    private LocalDateTime date = LocalDateTime.now();
 
+//    @PrePersist
+//    public void prePersist() {
+//        date = new Time();
+//    }
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getTotalFlow() {
         return totalFlow;
     }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 

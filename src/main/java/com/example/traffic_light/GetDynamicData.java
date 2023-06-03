@@ -1,5 +1,4 @@
 package com.example.traffic_light;
-import com.example.Repository.EmergencyRepository;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
