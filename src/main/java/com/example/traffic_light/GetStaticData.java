@@ -16,7 +16,7 @@ public class GetStaticData {
 
             while ((line = reader.readLine()) != null && count < 4) {
                 String[] values = line.split(",");
-                storeCsvValue(values[0], count);
+                storeCsvValue(values[33], count);
                 count++;
             }
         } catch (IOException e) {
@@ -31,13 +31,6 @@ public class GetStaticData {
             }
         }
     }
-
-    public void getEmergencyData(){
-        System.out.println("File Loading...");
-
-        System.out.println("Success");
-    }
-
     public int getData(String lane){
         switch (lane) {
             case "East":

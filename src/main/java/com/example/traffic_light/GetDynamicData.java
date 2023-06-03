@@ -4,10 +4,12 @@ import java.io.FileReader;
 import java.io.IOException;
 //這個Class是抓取動態數據
 public class GetDynamicData {
+
     private BufferedReader reader;
     private int trafficFlow;
     private int[] csvValues;
     public GetDynamicData(String filePath) {
+
         csvValues = new int[4];
 
         try {
@@ -21,7 +23,8 @@ public class GetDynamicData {
                 count++;
             }
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            GetStaticData getStaticData = new GetStaticData("staticdata.csv");
         } finally {
             try {
                 if (reader != null) {
@@ -31,6 +34,11 @@ public class GetDynamicData {
                 e.printStackTrace();
             }
         }
+    }
+    public void getEmergencyData(){
+        System.out.println("File Loading...");
+
+        System.out.println("Success");
     }
     public int getData(String lane) {
         switch (lane) {

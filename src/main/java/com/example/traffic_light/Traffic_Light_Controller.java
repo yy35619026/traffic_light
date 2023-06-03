@@ -18,7 +18,6 @@ public class Traffic_Light_Controller {
 
 
     public Traffic_Light_Controller() {
-        ai.compareSameLevelTrafficFlow();
         lane = ai.compareVerticalTrafficFlow();
 
         boolean emergency;
