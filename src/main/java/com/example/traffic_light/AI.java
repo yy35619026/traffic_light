@@ -37,6 +37,7 @@ public class AI {
         int A = (eastLane > westLane) ? eastLane : westLane;
         int B = (northLane > southLane) ? northLane : southLane;
         ratio = (double) A / B;
+        compareVerticalTrafficFlow();
     }
 
     public String compareVerticalTrafficFlow() {
