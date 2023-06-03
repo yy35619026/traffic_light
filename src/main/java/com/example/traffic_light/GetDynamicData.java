@@ -3,11 +3,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 //這個Class是抓取動態數據
-public class Yolov8 {
+public class GetDynamicData {
     private BufferedReader reader;
     private int trafficFlow;
     private int[] csvValues;
-    public Yolov8(String filePath) {
+    public GetDynamicData(String filePath) {
         csvValues = new int[4];
 
         try {
@@ -17,7 +17,7 @@ public class Yolov8 {
 
             while ((line = reader.readLine()) != null && count < 4) {
                 String[] values = line.split(",");
-                storeCsvValue(values[33], count);
+                storeCsvValue(values[0], count);
                 count++;
             }
         } catch (IOException e) {

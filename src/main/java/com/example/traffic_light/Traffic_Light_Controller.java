@@ -6,48 +6,45 @@ import java.awt.*;
 import java.util.Scanner;
 
 public class Traffic_Light_Controller {
-
+    AI ai = new AI();
+    Traffic_Light traffic_light = new Traffic_Light();
+    Traffic_Light_time traffic_light_time = new Traffic_Light_time();
     private int light_time;
     private String lane;
-    Traffic_Light traffic_light;
-    Traffic_Light_time traffic_light_time;
     public int getLight_time() {
         return light_time;
     }
 
 
 
-    public Traffic_Light_Controller(AI ai, Traffic_Light traffic_light, Traffic_Light_time traffic_light_time) {
-        this.traffic_light = traffic_light;
-        this.traffic_light_time = traffic_light_time;
-
+    public Traffic_Light_Controller() {
         ai.compareSameLevelTrafficFlow();
         lane = ai.compareVerticalTrafficFlow();
 
         boolean emergency;
         traffic_light_time.restTime();
-        emergency = false; //模擬緊急車輛通過
+        emergency = true; //模擬緊急車輛通過
 
         if(emergency == false){
             //無緊急車輛通過就正常
-            determine_Time(Traffic_Light_time.LaneType.valueOf(lane));
+            determineTime(Traffic_Light_time.LaneType.valueOf(lane));
         }
 
         Scanner sc = new Scanner(System.in);
         System.out.println("請輸入目前紅綠燈信號為：");
-        String signal = sc.nextLine();
-        demermine_state(lane, emergency, signal);
+        String signal = sc.next();
+        demermineState("Parallel", emergency, signal);
     }
 
 
-    public void demermine_state(String lane,boolean bool,String color){
+    public void demermineState(String lane,boolean bool,String color){
         traffic_light.changeLight(lane,bool,color);
     }
 
 //第二段貼這邊
 
-    public void determine_Time(Traffic_Light_time.LaneType lane){
-        traffic_light_time.change_time(lane);
+    public void determineTime(Traffic_Light_time.LaneType lane){
+        traffic_light_time.changeTime(lane);
     }
 
     public void saveData(){

@@ -14,7 +14,7 @@ public class Traffic_Light_time {
         ewredtime = 30;
     }
 
-    public void change_time(LaneType lane){
+    public void changeTime(LaneType lane){
 
         if(lane == LaneType.Vertical){
             System.out.format("\33[0;32m增加下次--南北向車道--綠燈總時間 %d 秒\33[0m%n",nsgreentime+15);

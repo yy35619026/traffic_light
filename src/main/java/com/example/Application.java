@@ -16,8 +16,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 public class Application {
 
 	public static void main(String[] args) {
-		new Traffic_Light_Controller(new AI(),new Traffic_Light(),new Traffic_Light_time());
-		SpringApplication.run(Application.class, args);
+		new Traffic_Light_Controller();
+//		SpringApplication.run(Application.class, args);
 	}
 
 }
