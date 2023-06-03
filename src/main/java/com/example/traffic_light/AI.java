@@ -7,6 +7,7 @@ public class AI {
     private int northLane;
     private int southLane;
     private double ratio;//each lane's compare value
+    private boolean Emergency;
     public AI(){
         //這裡是 new AI的流程要AI做的事情都在這邊添加
 //        getTrafficFlow("trafficFlow.csv");
@@ -20,7 +21,7 @@ public class AI {
         westLane = getDynamicData.getData("West"); // Get traffic volume for the West lane
         northLane = getDynamicData.getData("North"); // Get traffic volume for the North lane
         southLane = getDynamicData.getData("South"); // Get traffic volume for the South lane
-
+        Emergency = getDynamicData.getEmergencyData();
 //        GetStaticData staticData = new GetStaticData(filePath);
 //
 //        eastLane = staticData.getData("East"); // Get traffic volume for the East lane
@@ -43,15 +44,18 @@ public class AI {
     public String compareVerticalTrafficFlow() {
         String lane;
         if (ratio >= 2.5) {
-            System.out.println("Increase green light time.");
+//            System.out.println("Increase green light time.");
             lane = "Parallel";
         } else if (ratio <= 0.4){
-            System.out.println("Decrease green light time.");
+//            System.out.println("Decrease green light time.");
             lane = "Vertical";
         }else{
-            System.out.println("Remain the same.");
+//            System.out.println("Remain the same.");
             lane = "";
         }
         return lane;
+    }
+    public boolean getEmergencyVehicle(){
+        return Emergency;
     }
 }

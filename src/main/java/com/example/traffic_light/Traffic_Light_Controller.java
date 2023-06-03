@@ -22,17 +22,13 @@ public class Traffic_Light_Controller {
 
         boolean emergency;
         traffic_light_time.restTime();
-        emergency = true; //模擬緊急車輛通過
+        emergency = ai.getEmergencyVehicle(); //模擬緊急車輛通過
 
         if(emergency == false){
             //無緊急車輛通過就正常
             determineTime(Traffic_Light_time.LaneType.valueOf(lane));
         }
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("請輸入目前紅綠燈信號為：");
-        String signal = sc.next();
-        demermineState("Parallel", emergency, signal);
+        demermineState("Parallel", emergency, "Green");
     }
 
 

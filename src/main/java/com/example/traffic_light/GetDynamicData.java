@@ -35,10 +35,12 @@ public class GetDynamicData {
             }
         }
     }
-    public void getEmergencyData(){
+    public boolean getEmergencyData(){
+        boolean EmergencyVehicle;
         System.out.println("File Loading...");
-
+        EmergencyVehicle = true;
         System.out.println("Success");
+        return EmergencyVehicle;
     }
     public int getData(String lane) {
         switch (lane) {

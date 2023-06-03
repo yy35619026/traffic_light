@@ -1,7 +1,7 @@
 package com.example.Controller;
 
-import com.example.Repository.EmergencyRepository;
-import com.example.Repository.TrafficRepository;
+//import com.example.Repository.EmergencyRepository;
+//import com.example.Repository.TrafficRepository;
 import com.example.database.Condition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,10 +13,10 @@ import java.lang.annotation.Target;
 @RestController
 @RequestMapping("/Condition")
 public class Traffic_controller {
-    @Autowired
-    TrafficRepository trafficRepository;
-    @Autowired
-    EmergencyRepository emergencyRepository;
+//    @Autowired
+//    TrafficRepository trafficRepository;
+//    @Autowired
+//    EmergencyRepository emergencyRepository;
 //
 //    @PostMapping("/create")
 //    public ResponseEntity<Traffic> create_condition(@RequestBody Traffic traffic) {
