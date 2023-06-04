@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Traffic_Light_Controller {
     AI ai = new AI();
-    Traffic_Light traffic_light = new Traffic_Light();
+    Traffic_Light traffic_light = new Traffic_Light(new Traffic_Light_time());
     Traffic_Light_time traffic_light_time = new Traffic_Light_time();
     private int light_time;
     private String lane;
@@ -27,6 +27,9 @@ public class Traffic_Light_Controller {
             //無緊急車輛通過就正常
             demermineState("Vertical", emergency, "Red");
         }else{
+            determineTime(Traffic_Light_time.LaneType.valueOf(lane));
+        }
+        if(emergency == false){
             determineTime(Traffic_Light_time.LaneType.valueOf(lane));
         }
     }

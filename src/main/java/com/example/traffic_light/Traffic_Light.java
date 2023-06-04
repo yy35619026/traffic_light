@@ -7,14 +7,14 @@ import java.awt.*;
 
 public class Traffic_Light {
 
-    Traffic_Light_time traffic_light_time = new Traffic_Light_time();
+//    Traffic_Light_time traffic_light_time = new Traffic_Light_time();
 
     public int nsgreentime;
     public int nsredtime;
     public int ewgreentime;
     public int ewredtime;
 
-    public Traffic_Light(){
+    public Traffic_Light(Traffic_Light_time traffic_light_time){
         traffic_light_time.restTime();
         this.nsgreentime = traffic_light_time.nsgreentime;
         this.nsredtime = traffic_light_time.nsredtime;

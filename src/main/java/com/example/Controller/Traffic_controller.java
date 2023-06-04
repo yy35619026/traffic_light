@@ -27,14 +27,9 @@ public class Traffic_controller {
     @GetMapping("/{id}")
     public Condition saveData(@PathVariable("id") String id) {
         Condition condition = new Condition();
-        Lane_East lane_east = new Lane_East();
-        Lane_West lane_west = new Lane_West();
-        Lane_North lane_north = new Lane_North();
-        Lane_South lane_south = new Lane_South();
 
         condition.setId((Integer.parseInt(id)));
         condition.setTotalFlow(100);
-
 
         trafficRepository.save(condition);
 
