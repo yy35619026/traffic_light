@@ -18,20 +18,17 @@ public class Traffic_Light_Controller {
 
 
     public Traffic_Light_Controller() {
-
-
         boolean emergency;
         traffic_light_time.restTime();
         emergency = ai.getEmergencyVehicle(); //模擬緊急車輛通過
+        lane = ai.compareVerticalTrafficFlow();
 
-
-        if(emergency == false){
-            lane = ai.compareVerticalTrafficFlow();
+        if(emergency == true){
             //無緊急車輛通過就正常
+            demermineState("Vertical", emergency, "Red");
+        }else{
             determineTime(Traffic_Light_time.LaneType.valueOf(lane));
         }
-        demermineState("Vertical", emergency, "Red");
-
     }
 
 
