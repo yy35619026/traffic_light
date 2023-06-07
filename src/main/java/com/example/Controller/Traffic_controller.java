@@ -27,12 +27,11 @@ public class Traffic_controller {
     @GetMapping("/{id}")
     public Condition saveData(@PathVariable("id") String id) {
         Condition condition = new Condition();
-
         condition.setId((Integer.parseInt(id)));
-        condition.setTotalFlow(100);
 
         trafficRepository.save(condition);
 
         return condition;
     }
+
 }

@@ -11,6 +11,7 @@ public class Traffic_Light_Controller {
     Traffic_Light_time traffic_light_time = new Traffic_Light_time();
     private int light_time;
     private String lane;
+    private boolean emergency;
     public int getLight_time() {
         return light_time;
     }
@@ -18,18 +19,14 @@ public class Traffic_Light_Controller {
 
 
     public Traffic_Light_Controller() {
-        boolean emergency;
         traffic_light_time.restTime();
         emergency = ai.getEmergencyVehicle(); //模擬緊急車輛通過
-        lane = ai.compareVerticalTrafficFlow();
-
-        if(emergency == true){
-            //無緊急車輛通過就正常
-            demermineState("Vertical", emergency, "Red");
+        if (emergency == true){
+            lane = ai.getLane();
+//            System.out.println(lane);
+            demermineState(lane, emergency, "Red");
         }else{
-            determineTime(Traffic_Light_time.LaneType.valueOf(lane));
-        }
-        if(emergency == false){
+            lane = ai.compareVerticalTrafficFlow();
             determineTime(Traffic_Light_time.LaneType.valueOf(lane));
         }
     }
@@ -46,6 +43,8 @@ public class Traffic_Light_Controller {
     }
 
     public void saveData(){
-        System.out.println("SaveData is worked.");
+        Lane_East lane_east = new Lane_East();
+        lane_east.setTrafficflowEast(100);
+
     }
 }

@@ -8,6 +8,7 @@ public class AI {
     private int southLane;
     private double ratio;//each lane's compare value
     private boolean Emergency;
+    private String lane;
     public AI(){
         //這裡是 new AI的流程要AI做的事情都在這邊添加
 //        getTrafficFlow("trafficFlow.csv");
@@ -15,18 +16,24 @@ public class AI {
         System.out.println("-----------------------");
 
         getTrafficFlow("trafficFlow.csv");
+        getTrafficFlow("trafficFlow.csv");
+        getTrafficFlow("trafficFlow.csv");
+        getTrafficFlow("trafficFlow.csv");
         compareSameLevelTrafficFlow();
     }
     //get the traffic flow from yolov8
     public void getTrafficFlow(String filePath) {
         GetDynamicData getDynamicData = new GetDynamicData(filePath); // Create an instance of Yolov8 class
+
         eastLane = getDynamicData.getData("East"); // Get traffic volume for the East lane
         westLane = getDynamicData.getData("West"); // Get traffic volume for the West lane
         northLane = getDynamicData.getData("North"); // Get traffic volume for the North lane
         southLane = getDynamicData.getData("South"); // Get traffic volume for the South lane
+        
         for(int i = 4 ; i < 8 ; i++){
             Emergency = getDynamicData.getEmergencyData(i);
             if(Emergency == true){
+                lane = getDynamicData.getLane();
                 break;
             }
         }
@@ -64,6 +71,9 @@ public class AI {
             System.out.println("目前車道流量穩定！！！");
             lane = "";
         }
+        return lane;
+    }
+    public String getLane(){
         return lane;
     }
     public boolean getEmergencyVehicle(){
