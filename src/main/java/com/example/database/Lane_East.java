@@ -16,7 +16,6 @@ public class Lane_East {
     private boolean Emergency_vehicle;
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Date date;
-
     public int getId() {
         return id;
     }
@@ -24,19 +23,15 @@ public class Lane_East {
     public int getTrafficflowEast() {
         return trafficflowEast;
     }
-
     public boolean isEmergency_vehicle() {
         return Emergency_vehicle;
     }
-
     public Date getDate() {
         return date;
     }
-
     public void setTrafficflowEast(int trafficflowEast) {
         this.trafficflowEast = trafficflowEast;
     }
-
     public void setEmergency_vehicle(boolean emergency_vehicle) {
         Emergency_vehicle = emergency_vehicle;
     }

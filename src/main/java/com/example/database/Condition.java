@@ -15,10 +15,6 @@ public class Condition {
     @Column(name = "Date")
     private LocalDateTime date = LocalDateTime.now();
 
-//    @PrePersist
-//    public void prePersist() {
-//        date = new Time();
-//    }
     public int getId() {
         return id;
     }
